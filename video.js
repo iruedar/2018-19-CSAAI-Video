@@ -47,23 +47,44 @@ function main(){
   play2 = document.getElementById('play2')
   play3 = document.getElementById('play3')
 
+  reloj = document.getElementById('reloj')
+  display = document.getElementById('display')
   //-- Al apretar el boton de ver video
   play1.onclick = () => {
     //-- Indicar la fuente del vídeo
     videoP.src = video1.src
     //-- Sincronizacion de los dos videos
     videoP.currentTime = video1.currentTime
+    display.innerHTML = 'VIDEO 1'
+
   }
   play2.onclick = () => {
     //-- Indicar la fuente del vídeo
     videoP.src = video2.src
     //-- Sincronizacion de los dos videos
     videoP.currentTime = video2.currentTime
+    display.innerHTML = 'VIDEO 2'
   }
   play3.onclick = () => {
     //-- Indicar la fuente del vídeo
     videoP.src = video3.src
     //-- Sincronizacion de los dos videos
     videoP.currentTime = video3.currentTime
+    display.innerHTML = 'VIDEO 3'
   }
+
+//-- Reloj
+  videoP.addEventListener("timeupdate",function(ev){
+    var time  = (videoP.currentTime);
+    var hours = Math.floor( time / 3600 );
+    var minutes = Math.floor( (time % 3600) / 60 );
+    var seconds = Math.floor(time % 60);
+
+    if (hours < 10) {
+
+    }
+    var result = hours + ":" + minutes + ":" + seconds;
+    reloj.innerHTML = result;
+  },true);
+
 }
