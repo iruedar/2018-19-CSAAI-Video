@@ -6,18 +6,27 @@
     <script src="video.js"></script>
   </head>
   <body onload="main();">
-    <p>Prueba de video</p>
-    <video id="videoPrincipal" autoplay loop muted></video>
-    <br>
-    <button id="display">Video seleccionado</button>
-    <p id="reloj"></p>
-    <br>
-    <video id="video1" autoplay loop muted></video>
-    <video id="video2" autoplay loop muted></video>
-    <video id="video3" autoplay loop muted></video>
-    <br>
-    <button type="button" id="play1">VER VIDEO1</button>
-    <button type="button" id="play2">VER VIDEO2</button>
-    <button type="button" id="play3">VER VIDEO3</button>
+    <table>
+      <tr>
+        <td id="videos">
+          <video id="videoPrincipal" autoplay loop muted></video>
+          <button id="display">Video seleccionado</button>
+          <br>
+          <video id="video1" autoplay loop muted></video>
+          <video id="video2" autoplay loop muted></video>
+          <video id="video3" autoplay loop muted></video>
+          <br>
+          <button type="button" id="play1">VER VIDEO1</button>
+          <button type="button" id="play2">VER VIDEO2</button>
+          <button type="button" id="play3">VER VIDEO3</button>
+        </td>
+        <td>
+          <p id="reloj"></p>
+          <button id="bucle">BUCLE</button>
+          <p> Start: <input type="number" id="start"></p>
+          <p> End: <input type="number" id="end"></p>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>

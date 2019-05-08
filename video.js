@@ -1,5 +1,9 @@
 function main(){
 
+  start = document.getElementById("start").value;
+  end = document.getElementById("end").value;
+  bucle = document.getElementById('bucle')
+
   //-- video1
   video1 = document.getElementById("video1")
   video1.src = "video1.mp4"
@@ -47,7 +51,6 @@ function main(){
   play2 = document.getElementById('play2')
   play3 = document.getElementById('play3')
 
-  reloj = document.getElementById('reloj')
   display = document.getElementById('display')
   //-- Al apretar el boton de ver video
   play1.onclick = () => {
@@ -73,21 +76,25 @@ function main(){
     display.innerHTML = 'VIDEO 3'
   }
 
-  bucle = document.getElementById('bucle')
-  bucle.onclick =()=> {
+//  bucle.onclick =()=> {
+//      videoP.currentTime = start
+//  }
 
-      videoP.currentTime = 0;
+  function hora(segundos){
+      var d = new Date(segundos*1000);
+      // Ajuste de las 23 horas
+      var hora = (d.getHours()==0)?23:d.getHours()-1;
+      var hora = (hora<9)?"0"+hora:hora;
+      var minuto = (d.getMinutes()<9)?"0"+d.getMinutes():d.getMinutes();
+      var segundo = (d.getSeconds()<9)?"0"+d.getSeconds():d.getSeconds();
+      return hora + ":" + minuto + ":" + segundo;
+
+      if (end != 0 && videoP.currentTime > end ){
+          videoP.currentTime = start;
+      }
   }
-
-
-//-- Reloj
   videoP.addEventListener("timeupdate",function(ev){
-    var time  = (videoP.currentTime);
-    var hours = Math.floor( time / 3600 );
-    var minutes = Math.floor( (time % 3600) / 60 );
-    var seconds = Math.floor(time % 60);
-    var result = hours + ":" + minutes + ":" + seconds;
-    reloj.innerHTML = result;
+  document.getElementById("reloj").innerHTML = hora(videoP.currentTime);
   },true);
 
 }
