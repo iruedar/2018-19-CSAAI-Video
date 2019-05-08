@@ -2,7 +2,7 @@ function main(){
 
   //-- video1
   video1 = document.getElementById("video1")
-  video1.src = "videos/video1.mp4"
+  video1.src = "video1.mp4"
   video1.width = 300;
   video1.height= 150;
   video1.onmouseover = () => {
@@ -14,7 +14,7 @@ function main(){
 
   //-- video2
   video2 = document.getElementById("video2")
-  video2.src = "videos/video2.mp4"
+  video2.src = "video2.mp4"
   video2.width = 300;
   video2.height= 150;
   video2.onmouseover = () => {
@@ -26,7 +26,7 @@ function main(){
 
   //-- video3
   video3 = document.getElementById("video3")
-  video3.src = "videos/video3.mp4"
+  video3.src = "video3.mp4"
   video3.width = 300;
   video3.height= 150;
   video3.onmouseover = () => {
@@ -38,7 +38,7 @@ function main(){
 
   //-- videoPrincipal
   videoP = document.getElementById("videoPrincipal")
-  videoP.src = "videos/test.mp4"
+  videoP.src = "test.mp4"
   videoP.width = 600;
   videoP.height = 300;
 
@@ -73,16 +73,19 @@ function main(){
     display.innerHTML = 'VIDEO 3'
   }
 
+  bucle = document.getElementById('bucle')
+  bucle.onclick =()=> {
+
+      videoP.currentTime = 0;
+  }
+
+
 //-- Reloj
   videoP.addEventListener("timeupdate",function(ev){
     var time  = (videoP.currentTime);
     var hours = Math.floor( time / 3600 );
     var minutes = Math.floor( (time % 3600) / 60 );
     var seconds = Math.floor(time % 60);
-
-    if (hours < 10) {
-
-    }
     var result = hours + ":" + minutes + ":" + seconds;
     reloj.innerHTML = result;
   },true);
